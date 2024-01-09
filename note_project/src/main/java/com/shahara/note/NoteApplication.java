@@ -1,13 +1,13 @@
-package com.nhat.note_project;
+package com.shahara.note;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NoteProjectApplication {
+public class NoteApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NoteProjectApplication.class, args);
+		SpringApplication.run(NoteApplication.class, args);
 	}
 
 }
