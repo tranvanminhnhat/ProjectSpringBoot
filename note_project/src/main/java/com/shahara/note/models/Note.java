@@ -1,32 +1,35 @@
 package com.shahara.note.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "note")
 public class Note {
     @Id
-    private int typeId;
+    private int noteId;
     private String title;
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "noteTypeId", nullable = false)
+    private NoteType noteType;
 
     public Note() {
     }
 
-    public Note(int typeId, String title, String content) {
-        this.typeId = typeId;
+    public Note(int noteId, String title, String content, NoteType noteType) {
+        this.noteId = noteId;
         this.title = title;
         this.content = content;
+        this.noteType = noteType;
     }
 
-    public int getTypeId() {
-        return typeId;
+    public int getNoteId() {
+        return noteId;
     }
 
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
+    public void setNoteId(int typeId) {
+        this.noteId = typeId;
     }
 
     public String getTitle() {
@@ -43,5 +46,13 @@ public class Note {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public NoteType getNoteType() {
+        return noteType;
+    }
+
+    public void setNoteType(NoteType noteType) {
+        this.noteType = noteType;
     }
 }
